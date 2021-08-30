@@ -30,9 +30,9 @@ function randomString(e) {
 }
 $.InviteList = []
 $.innerInviteList = [];
-const HelpAuthorFlag = true;//是否助力  true 助力，false 不助力
+const HelpAuthorFlag = false;//是否助力  true 助力，false 不助力i
 
-let codeIndex = $.getval('gua_wealth_island_codeId') || '' // 定义提交助力码的账号如2,3,5
+let codeIndex = $.getval('gua_wealth_island_codeId') || '1,2,3' // 定义提交助力码的账号如2,3,5
 if ($.isNode() && process.env.gua_wealth_island_codeId) {
   codeIndex = process.env.gua_wealth_island_codeId;
 }
@@ -79,11 +79,14 @@ $.appId = 10032;
   $.InviteLists = []
   let getShareNum = 10
   let getShareNums = 0
+
   if (HelpAuthorFlag) {
     $.innerInviteList = await getAuthorShareCode('https://raw.githubusercontent.com/smiek2221/updateTeam/master/shareCodes/wealth_island_code_one.json');
     if(!$.innerInviteList[0]) $.innerInviteList = await getAuthorShareCode('https://gitee.com/smiek2221/updateTeam/raw/master/shareCodes/wealth_island_code_one.json');
     res2 = await getAuthorShareCode('https://raw.githubusercontent.com/smiek2221/updateTeam/master/shareCodes/wealth_island_code.json');
     if(!res2[0]) res2 = await getAuthorShareCode('https://gitee.com/smiek2221/updateTeam/raw/master/shareCodes/wealth_island_code.json');
+
+
     getShareNums = [...res, ...res2].length >= getShareNum ? getShareNum : [...res, ...res2].length
     $.innerInviteLists = getRandomArrayElements([...res, ...res2], [...res, ...res2].length >= getShareNum ? getShareNum : [...res, ...res2].length );
     $.InviteLists.push(...$.InviteList,...$.innerInviteList,...$.innerInviteLists);
