@@ -9,7 +9,7 @@ TG学习交流群：https://t.me/cdles
 const $ = new Env("早起赢现金")
 const ua = `jdltapp;iPhone;3.1.0;${Math.ceil(Math.random()*4+10)}.${Math.ceil(Math.random()*4)};${randomString(40)}`
 let cookiesArr = []
-var pins = process.env.morningScPins ?? ""
+var pins = process.env.morningScPins ?? "642203775_m"
 let cookie = '';
 !(async () => {
     await requireConfig()

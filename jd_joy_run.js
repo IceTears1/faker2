@@ -43,7 +43,7 @@ $.get = zooFaker.injectToRequest2($.get.bind($));
 $.post = zooFaker.injectToRequest2($.post.bind($));
 //宠汪汪赛跑所需token，默认读取作者服务器的
 //需自行抓包，宠汪汪小程序获取token，点击`发现`或`我的`，寻找`^https:\/\/draw\.jdfcloud\.com(\/mirror)?\/\/api\/user\/user\/detail\?openId=`获取token
-let jdJoyRunToken = '';
+let jdJoyRunToken = 'oAAifTxiEohpVCoMJBMVbp0eFG2n2q4jnU3Psg27U8j9iZyUVEcfFtBaQEjDI1fYBQ6YJHwCYKxXds3YryqhD4Fja2j9vYrfVyNCypsqJhoktAfpF2F7WSMTr7';
 
 const isRequest = typeof $request != "undefined"
 const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
