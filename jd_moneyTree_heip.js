@@ -192,6 +192,11 @@ function requireConfig() {
     let shareCodes = []
     console.log(`共${cookiesArr.length}个京东账号\n`);
     $.shareCodesArr = [];
+    let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
+    for (let i = 0; i < cookiesArr.length; i++) { 
+      $.shareCodesArr.push(a);
+    }
+
     if ($.isNode()) {
       //自定义助力码
       if (process.env.MONEYTREE_SHARECODES) {
@@ -214,13 +219,8 @@ function requireConfig() {
 
 function shareCodesFormat() {
   return new Promise(async resolve => {
-    let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
     $.newShareCodes = [];
-    var inviteCodes = [];
-    for (let i = 0; i < cookiesArr.length; i++) { 
-      $.inviteCodes.push(a);
-    }
-  
+    let inviteCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
