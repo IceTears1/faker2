@@ -29,7 +29,8 @@ let ADD_CART = false
 ADD_CART = $.isNode() ? (process.env.PURCHASE_SHOPS ? process.env.PURCHASE_SHOPS : ADD_CART) : ($.getdata("ADD_CART") ? $.getdata("ADD_CART") : ADD_CART);
 // 加入购物车开关，与东东小窝共享
 
-let inviteCodes = [];
+var inviteCodes = [];
+
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -50,6 +51,7 @@ if ($.isNode()) {
   let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
   for (let i = 0; i < cookiesArr.length; i++) { 
     $.shareCodesArr.push(a);
+    inviteCodes.push(a);
   }
   await requireConfig()
   for (let i = 0; i < cookiesArr.length; i++) {
