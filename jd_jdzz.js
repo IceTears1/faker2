@@ -282,7 +282,14 @@ function requireConfig() {
       }
     }
     console.log(`共${cookiesArr.length}个京东账号\n`);
+
     $.shareCodesArr = [];
+    let a = 'b3a27b3122c8458ca95aff82ee1dc237';
+    for (let i = 0; i < cookiesArr.length; i++) { 
+      $.shareCodesArr.push(a);
+    
+    }
+    
     if ($.isNode()) {
       Object.keys(shareCodes).forEach((item) => {
         if (shareCodes[item]) {
