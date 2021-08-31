@@ -214,11 +214,12 @@ function requireConfig() {
 
 function shareCodesFormat() {
   return new Promise(async resolve => {
+    let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
     $.newShareCodes = [];
-    let inviteCodes = [
-      't_7LVGP8mopofh8AG0Q7E8AdoUJQ3Dik@zExA7lNc3HrJrbVuG3xRVMAdoUJQ3Dik@cvwWiz9o2evNHFdNk0oNbMAdoUJQ3Dik@8MQ6wrd9H0IAujNGUqzTAA',
-      't_7LVGP8mopofh8AG0Q7E8AdoUJQ3Dik@zExA7lNc3HrJrbVuG3xRVMAdoUJQ3Dik@cvwWiz9o2evNHFdNk0oNbMAdoUJQ3Dik@8MQ6wrd9H0IAujNGUqzTAA'
-    ];
+    for (let i = 0; i < cookiesArr.length; i++) { 
+      $.newShareCodes.push(a);
+    }
+    let inviteCodes = [];
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
