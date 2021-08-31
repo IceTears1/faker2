@@ -46,7 +46,11 @@ if ($.isNode()) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
     return;
   }
-  $.shareCodesArr = []
+  $.shareCodesArr = [];
+  let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
+  for (let i = 0; i < cookiesArr.length; i++) { 
+    $.shareCodesArr.push(a);
+  }
   await requireConfig()
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
