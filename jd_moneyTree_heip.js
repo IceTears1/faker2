@@ -216,10 +216,11 @@ function shareCodesFormat() {
   return new Promise(async resolve => {
     let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
     $.newShareCodes = [];
+    var inviteCodes = [];
     for (let i = 0; i < cookiesArr.length; i++) { 
-      $.newShareCodes.push(a);
+      $.inviteCodes.push(a);
     }
-    let inviteCodes = [];
+  
     if ($.shareCodesArr[$.index - 1]) {
       $.newShareCodes = $.shareCodesArr[$.index - 1].split('@');
     } else {
