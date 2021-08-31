@@ -48,7 +48,7 @@ if ($.isNode()) {
     return;
   }
   $.shareCodesArr = [];
-  let a = 'pJF4XFAqdJMf8SvyMuaWQQ@yM4l_QDvcXWFzPpBNkpD9A@pcbfTzlV2ytulrnpsAU54Q@ivQtOW7b6A59DFLkc8fOoMAdoUJQ3Dik@gNaEpLtjLVTiCwfkVr99rMAdoUJQ3Dik';
+  let a = 'b3a27b3122c8458ca95aff82ee1dc237@4b4fff1e0e4647c3890b8ed9fa5d51c5';
   for (let i = 0; i < cookiesArr.length; i++) { 
     $.shareCodesArr.push(a);
     inviteCodes.push(a);
