@@ -99,7 +99,7 @@ headers: {
 
                     data = JSON.parse(data);
 
-                    //console.log(data)
+                    console.log(data)
                     
                     if(data.data.inviteStatus == 1){
                       console.log(data.data.inviteStatus+"邀请成功")
