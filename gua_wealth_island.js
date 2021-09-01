@@ -16,7 +16,7 @@ $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
 let UA = `jdpingou;iPhone;5.2.2;14.3;${randomString(40)};network/wifi;model/iPhone12,1;appBuild/100630;ADID/00000000-0000-0000-0000-000000000000;supportApplePay/1;hasUPPay/0;pushNoticeIsOpen/0;hasOCPay/0;supportBestPay/0;session/1;pap/JA2019_3111789;brand/apple;supportJDSHWK/1;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`
 function randomString(e) {
   e = e || 32;
-  let t = "abcdef0123456789", a = t.length, n = "";
+  let t = "abcef01234567890", a = t.length, n = "";
   for (i = 0; i < e; i++)
     n += t.charAt(Math.floor(Math.random() * a));
   return n
@@ -26,7 +26,7 @@ $.innerInviteList = [];
 const HelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不助力
 
 // 热气球接客 每次运行接客次数
-let serviceNum = 10;// 每次运行接客次数
+let serviceNum = 50;// 每次运行接客次数
 if ($.isNode() && process.env.gua_wealth_island_serviceNum) {
   serviceNum = Number(process.env.gua_wealth_island_serviceNum);
 }
