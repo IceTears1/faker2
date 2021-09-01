@@ -54,11 +54,11 @@ if ($.isNode()) {
         }
         await main();
     }
-    try{res = await getAuthorShareCode('https://raw.githubusercontent.com/star261/jd/main/code/starShop.json');}catch (e) {}
-    if(!res){
-        try{res = await getAuthorShareCode('https://gitee.com/star267/share-code/raw/master/starShop.json');}catch (e) {}
-        if(!res){res = [];}
-    }
+    // try{res = await getAuthorShareCode('https://raw.githubusercontent.com/star261/jd/main/code/starShop.json');}catch (e) {}
+    // if(!res){
+    //     try{res = await getAuthorShareCode('https://gitee.com/star267/share-code/raw/master/starShop.json');}catch (e) {}
+    //     if(!res){res = [];}
+    // }
     if(res && res.length > 0){
         $.authorCodeList = getRandomArrayElements(res,1)[0];
     }

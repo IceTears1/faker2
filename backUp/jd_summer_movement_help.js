@@ -28,7 +28,7 @@ for(let i of outuserID && outuserID.split(',')){
   outuserIdArr.push(i)
 }
 
-const ShHelpAuthorFlag = true;//是否助力作者SH  true 助力，false 不助力
+const ShHelpAuthorFlag = false;//是否助力作者SH  true 助力，false 不助力
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [];
 $.cookie = '';
@@ -103,20 +103,6 @@ getUA()
   // 助力
   let res = [], res2 = [];
   $.ShInviteLists = []
-  if (ShHelpAuthorFlag) {
-    $.innerShInviteList = await getAuthorShareCode('https://raw.githubusercontent.com/smiek2221/updateTeam/master/shareCodes/summer_movement_one.json');
-    res2 = await getAuthorShareCode('https://raw.githubusercontent.com/smiek2221/updateTeam/master/shareCodes/summer_movement.json');
-    if(!$.innerShInviteList[0]){
-      $.innerShInviteList = await getAuthorShareCode('https://gitee.com/smiek2221/updateTeam/raw/master/shareCodes/summer_movement_one.json');
-    }
-    if(!res2[0]){
-      res2 = await getAuthorShareCode('https://gitee.com/smiek2221/updateTeam/raw/master/shareCodes/summer_movement.json');
-    }
-    $.innerShInviteLists = getRandomArrayElements([...res, ...res2], [...res, ...res2].length);
-    $.ShInviteLists.push(...$.ShInviteList,...$.innerShInviteList,...$.innerShInviteLists);
-  }else{
-    $.ShInviteLists.push(...$.ShInviteList);
-  }
   for (let i = 0; i < cookiesArr.length; i++) {
     if (!$.secretpInfo[$.UserName]) {
       continue;
