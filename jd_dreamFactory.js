@@ -57,7 +57,7 @@ if ($.isNode()) {
 }
 !(async () => {
   $.CryptoJS = $.isNode() ? require('crypto-js') : CryptoJS;
-  await requireConfig();
+  // await requireConfig();
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
@@ -1392,50 +1392,50 @@ function shareCodesFormat() {
     resolve();
   })
 }
-function requireConfig() {
-  return new Promise(async resolve => {
-    // tuanActiveId = $.isNode() ? (process.env.TUAN_ACTIVEID || tuanActiveId) : ($.getdata('tuanActiveId') || tuanActiveId);
-    // if (!tuanActiveId) {
-    //   await updateTuanIdsCDN('https://raw.githubusercontent.com/Aaron-lv/updateTeam/master/shareCodes/jd_updateFactoryTuanId.json');
-    //   if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
-    //     tuanActiveId = $.tuanConfigs['tuanActiveId'];
-    //     console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
-    //   } else {
-    //     if (!$.tuanConfigs) {
-    //       $.http.get({url: 'https://purge.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
-    //       await $.wait(1000)
-    //       await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json');
-    //       if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
-    //         tuanActiveId = $.tuanConfigs['tuanActiveId'];
-    //         console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
-    //       } else {
-    //         console.log(`拼团活动ID：获取失败，将采取脚本内置活动ID\n`)
-    //       }
-    //     }
-    //   }
-    // } else {
-    //   console.log(`自定义拼团活动ID: 获取成功 ${tuanActiveId}`)
-    // }
-    console.log(`开始获取${$.name}配置文件\n`);
-    //Node.js用户请在jdCookie.js处填写京东ck;
-    const shareCodes = $.isNode() ? require('./jdDreamFactoryShareCodes.js') : '';
-    console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [];
-    if ($.isNode()) {
-      Object.keys(shareCodes).forEach((item) => {
-        if (shareCodes[item]) {
-          $.shareCodesArr.push(shareCodes[item])
-        }
-      })
-    } else {
-      if ($.getdata('jd_jxFactory')) $.shareCodesArr = $.getdata('jd_jxFactory').split('\n').filter(item => item !== "" && item !== null && item !== undefined);
-      console.log(`\nBoxJs设置的${$.name}好友邀请码:${$.getdata('jd_jxFactory')}\n`);
-    }
-    // console.log(`\n种豆得豆助力码::${JSON.stringify($.shareCodesArr)}`);
-    console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
-    resolve()
-  })
-}
+// function requireConfig() {
+//   return new Promise(async resolve => {
+//     // tuanActiveId = $.isNode() ? (process.env.TUAN_ACTIVEID || tuanActiveId) : ($.getdata('tuanActiveId') || tuanActiveId);
+//     // if (!tuanActiveId) {
+//     //   await updateTuanIdsCDN('https://raw.githubusercontent.com/Aaron-lv/updateTeam/master/shareCodes/jd_updateFactoryTuanId.json');
+//     //   if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
+//     //     tuanActiveId = $.tuanConfigs['tuanActiveId'];
+//     //     console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
+//     //   } else {
+//     //     if (!$.tuanConfigs) {
+//     //       $.http.get({url: 'https://purge.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+//     //       await $.wait(1000)
+//     //       await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json');
+//     //       if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
+//     //         tuanActiveId = $.tuanConfigs['tuanActiveId'];
+//     //         console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
+//     //       } else {
+//     //         console.log(`拼团活动ID：获取失败，将采取脚本内置活动ID\n`)
+//     //       }
+//     //     }
+//     //   }
+//     // } else {
+//     //   console.log(`自定义拼团活动ID: 获取成功 ${tuanActiveId}`)
+//     // }
+//     console.log(`开始获取${$.name}配置文件\n`);
+//     //Node.js用户请在jdCookie.js处填写京东ck;
+//     // const shareCodes = $.isNode() ? require('./jdDreamFactoryShareCodes.js') : '';
+//     // console.log(`共${cookiesArr.length}个京东账号\n`);
+//     $.shareCodesArr = [];
+//     if ($.isNode()) {
+//       Object.keys(shareCodes).forEach((item) => {
+//         if (shareCodes[item]) {
+//           $.shareCodesArr.push(shareCodes[item])
+//         }
+//       })
+//     } else {
+//       if ($.getdata('jd_jxFactory')) $.shareCodesArr = $.getdata('jd_jxFactory').split('\n').filter(item => item !== "" && item !== null && item !== undefined);
+//       console.log(`\nBoxJs设置的${$.name}好友邀请码:${$.getdata('jd_jxFactory')}\n`);
+//     }
+//     // console.log(`\n种豆得豆助力码::${JSON.stringify($.shareCodesArr)}`);
+//     console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
+//     resolve()
+//   })
+// }
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
