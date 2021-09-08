@@ -90,7 +90,7 @@ async function jdGlobal() {
     await signInit()
     await sign()
     await invite()
-    await invite2()
+    // await invite2()
     $.score = 0
     $.total = 0
     await taskList()
@@ -704,10 +704,11 @@ function invite2() {
 
 function invite() {
   let t = +new Date()
-  let inviterId = [
-    "5V7vHE23qh2EkdBHXRFDuA==",
-    "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc="
-  ][Math.floor((Math.random() * 2))]
+  // let inviterId = [
+  //   "5V7vHE23qh2EkdBHXRFDuA==",
+  //   "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc="
+  // ][Math.floor((Math.random() * 2))]
+  let inviterId = 'UKVLQ5T1W+wrCAvavcYZzQ==';
   var headers = {
     'Host': 'api.m.jd.com',
     'accept': 'application/json, text/plain, */*',
