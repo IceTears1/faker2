@@ -31,6 +31,9 @@ if($.isNode()){
     console.log('=====环境变量配置如下=====')
     console.log(`sendNum: ${typeof $.sendNum}, ${$.sendNum}`)
     console.log('=======================')
+    if ($.sendNum > cookiesArr.length){
+        $.sendNum = cookiesArr.length;
+    }
     for(let i = 0; i < cookiesArr.length; i++){
         if(cookiesArr[i]){
             cookie = cookiesArr[i];
@@ -69,17 +72,19 @@ if($.isNode()){
             }
             console.log(`[京东账号${$.index}]`)
             console.log(`[京东账号${$.index} ${$.UserName}] 结束\n`)
+
             if($.isNode()){
                 if($.index % $.sendNum === 0){
                     $.sentNum++;
                     console.log(`正在进行第 ${$.sentNum} 次发送通知，发送数量：${$.sendNum}`)
                     await notify.sendNotify(`${$.name}`, `${message}`)
                     message = "";
-                } else if((cookiesArr.length - ($.sentNum * $.sendNum)) < $.sendNum){
-                    console.log(`正在进行最后一次发送通知，发送数量：${(cookiesArr.length - ($.sentNum * $.sendNum))}`)
-                    await notify.sendNotify(`${$.name}`, `${message}`)
-                    message = "";
-                }
+                } 
+                // else if((cookiesArr.length - ($.sentNum * $.sendNum)) < $.sendNum){
+                //     console.log(`正在进行最后一次发送通知，发送数量：${(cookiesArr.length - ($.sentNum * $.sendNum))}`)
+                //     await notify.sendNotify(`${$.name}`, `${message}`)
+                //     message = "";
+                // }
             }
         }
     }
