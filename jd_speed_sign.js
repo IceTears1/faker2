@@ -49,7 +49,7 @@ const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
-  for (let i = 0; i < cookiesArr.length; i++) {
+  for (let i = 1; i < cookiesArr.length; i += 2) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -88,7 +88,7 @@ async function jdGlobal() {
     await wheelsHome()
 
     await signInit()
-    await sign()
+    // await sign()
     await invite()
     await invite2()
     $.score = 0
