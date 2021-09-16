@@ -87,15 +87,16 @@ async function jdGlobal() {
     await apTaskList()
     await wheelsHome()
 
-    await signInit()
-    await sign()
-    // await invite()
+    // await signInit()
+    // await sign()
+    await invite()
+
     await invite2()
     $.score = 0
     $.total = 0
     await taskList()
     await queryJoy()
-    await signInit()
+    // await signInit()
     await cash()
     await showMsg()
   } catch (e) {
@@ -674,11 +675,7 @@ function taskGetUrl(function_id, body) {
 
 function invite2() {
   let t = +new Date()
-  // let inviterId = [
-  //   "wXX9SjXOdYMWe5Ru/1+x9A==",
-  //   "5V7vHE23qh2EkdBHXRFDuA==",
-  //   "4AVQao+eH8Q8kvmXnWmkG8ef/fNr5fdejnD9+9Ugbec="
-  // ][Math.floor((Math.random() * 3))]
+
   let inviterId = 'UKVLQ5T1W+wrCAvavcYZzQ=='
   let headers = {
     'Host': 'api.m.jd.com',
@@ -710,6 +707,7 @@ function invite() {
   //   "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc="
   // ][Math.floor((Math.random() * 2))]
   let inviterId = 'UKVLQ5T1W+wrCAvavcYZzQ==';
+
   var headers = {
     'Host': 'api.m.jd.com',
     'accept': 'application/json, text/plain, */*',
