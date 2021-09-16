@@ -87,10 +87,9 @@ async function jdGlobal() {
     await apTaskList()
     await wheelsHome()
 
-    // await signInit()
-    // await sign()
+    await signInit()
+    await sign()
     await invite()
-
     await invite2()
     $.score = 0
     $.total = 0
