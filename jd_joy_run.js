@@ -131,8 +131,7 @@ async function main() {
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.validate = '';
-      // const zooFaker = require('./utils/JDJRValidator_Pure');
-      // $.validate = await zooFaker.injectToRequest()
+
       if ($.isNode()) {
           let my_run_pins = [];
           Object.values(jdCookieNode).filter(item => item.match(/pt_pin=([^; ]+)(?=;?)/)).map(item => my_run_pins.push(decodeURIComponent(item.match(/pt_pin=([^; ]+)(?=;?)/)[1])))
