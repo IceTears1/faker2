@@ -557,32 +557,6 @@ function getRandomArrayElements(arr, count) {
   }
   return shuffled.slice(min);
 }
-function getFriendPins() {
-  return new Promise(resolve => {
-    $.get({
-      url: "https://cdn.jsdelivr.net/gh/gitupdate/friendPin@main/friendPins.json",
-      headers:{
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-      },
-      timeout: 100000}, async (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`getFriendPins::${JSON.stringify(err)}`);
-        } else {
-          $.friendPins = data && JSON.parse(data);
-          if ($.friendPins && $.friendPins['friendsArr']) {
-            friendsArr = $.friendPins['friendsArr'];
-            console.log(`\n共提供 ${friendsArr.length}个好友供来进行邀请助力\n`)
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve();
-      }
-    })
-  })
-}
 isRequest ? getToken() : main();
 
 
