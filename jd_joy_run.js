@@ -45,17 +45,19 @@ $.post = zooFaker.injectToRequest2($.post.bind($));
 //需自行抓包，宠汪汪小程序获取token，点击`发现`或`我的`，寻找`^https:\/\/draw\.jdfcloud\.com(\/mirror)?\/\/apienId\/user\/user\/detail\?op=`获取token
 let jdJoyRunToken = 'oPcgJ4zdqCuNCkhotLGPpkDio4OY';
 
-const isRequest = typeof $request != "undefined"
+// const isRequest = typeof $request != "undefined"
+const isRequest = false
+
 const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : {};
 //下面给出好友邀请助力的示例填写规则
 
-let invite_pins = [];
+let invite_pins = ["642203775_m"];
 //下面给出好友赛跑助力的示例填写规则
-let run_pins = [];
+let run_pins = ["642203775_m"];
 //friendsArr内置太多会导致IOS端部分软件重启,可PR过来(此处目的:帮别人助力可得30g狗粮)
-let friendsArr = []
+let friendsArr = ["jd_AtLmqDoQMkjB","493326963_m"]
 
 
 
