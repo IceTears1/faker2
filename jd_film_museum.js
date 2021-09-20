@@ -60,6 +60,7 @@ if ($.isNode()) {
             }
             continue
         }
+        $.shareUuid = '';
         await main();
     }
 })().catch((e) => {
