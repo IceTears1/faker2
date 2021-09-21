@@ -521,6 +521,7 @@ function getHelp() {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
+          console.log(`\n33333----  \n${JSON.stringify(data)}`);
           data = JSON.parse(data);
           if (data.code === 200) {
             console.log(`\n\n${$.name}互助码每天都变化,旧的不可继续使用`);
