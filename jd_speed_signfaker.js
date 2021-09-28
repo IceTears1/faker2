@@ -677,6 +677,7 @@ function invite2() {
   let t = +new Date()
 
   let inviterId = 'UKVLQ5T1W+wrCAvavcYZzQ=='
+
   let headers = {
     'Host': 'api.m.jd.com',
     'accept': 'application/json, text/plain, */*',
