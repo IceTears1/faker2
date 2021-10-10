@@ -45,19 +45,12 @@ const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : {};
 //下面给出好友邀请助力的示例填写规则
-<<<<<<< HEAD
 let invite_pins = ['642203775_m'];
 //下面给出好友赛跑助力的示例填写规则
 let run_pins = ['642203775_m'];
 //friendsArr内置太多会导致IOS端部分软件重启,可PR过来(此处目的:帮别人助力可得30g狗粮)
 let friendsArr = ["642203775_m"]
-=======
-let invite_pins = ['zhaosen2580,jd_47ee22449e303,jd_6c5e39478ec3b,jd_4346918b58d6e,liuz9988,88489948,jd_61f1269fd3236,jaysherlock,18688849123_p'];
-//下面给出好友赛跑助力的示例填写规则
-let run_pins = ['zhaosen2580,jd_47ee22449e303,jd_6c5e39478ec3b,jd_4346918b58d6e,liuz9988,88489948,jd_61f1269fd3236,jaysherlock,18688849123_p'];
-//friendsArr内置太多会导致IOS端部分软件重启,可PR过来(此处目的:帮别人助力可得30g狗粮)
-let friendsArr = ["zhaosen2580", "jd_47ee22449e303", "jd_6c5e39478ec3b", "jd_4346918b58d6e", "liuz9988", "88489948", "jd_61f1269fd3236", "jaysherlock", "18688849123_p"]
->>>>>>> origin/main
+
 
 
 //IOS等用户直接用NobyDa的jd cookie
@@ -572,35 +565,6 @@ function getRandomArrayElements(arr, count) {
   }
   return shuffled.slice(min);
 }
-<<<<<<< HEAD
-=======
-function getFriendPins() {
-  return new Promise(resolve => {
-    $.get({
-      url: "https://cdn.jsdelivr.net/gh/Aaron-lv/updateTeam@master/friendPins.json",
-      headers:{
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-      },
-      timeout: 100000}, async (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`getFriendPins::${JSON.stringify(err)}`);
-        } else {
-          $.friendPins = data && JSON.parse(data);
-          if ($.friendPins && $.friendPins['friendsArr']) {
-            friendsArr = $.friendPins['friendsArr'];
-            console.log(`\n共提供 ${friendsArr.length}个好友供来进行邀请助力\n`)
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve();
-      }
-    })
-  })
-}
->>>>>>> origin/main
 isRequest ? getToken() : main();
 
 

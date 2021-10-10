@@ -43,14 +43,8 @@ if ($.isNode()) {
                 console.log('更新ck');
                 continue
             }
-<<<<<<< HEAD
             authorCodeList = ['ba82928b66524232abe2cfb1af8315a2'];
-=======
-            authorCodeList = [
-                '67da87cee588481b886d60af864bf59c',
-                'ab9643010262431da639ef9d5533fe8d',
-            ]
->>>>>>> origin/main
+
             $.bean = 0;
             $.ADID = getUUID('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 1);
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
