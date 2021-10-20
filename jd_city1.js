@@ -27,11 +27,11 @@ let inviteCodes = []
     console.log(`注意：只助力第一个CK，等待10秒`);
     await $.wait(10000);
     let res = [];
-    try{res = await getAuthorShareCode('');}catch (e) {}
-    if(!res){
-        try{res = await getAuthorShareCode('');}catch (e) {}
-        if(!res){res = [];}
-    }
+    // try{res = await getAuthorShareCode('');}catch (e) {}
+    // if(!res){
+    //     try{res = await getAuthorShareCode('');}catch (e) {}
+    //     if(!res){res = [];}
+    // }
     if(res.length > 0){
         if(res.length > 3){
             insertCodes = getRandomArrayElements(res,3);
