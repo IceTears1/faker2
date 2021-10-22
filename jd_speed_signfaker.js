@@ -703,25 +703,8 @@ function invite2() {
 
 function invite() {
   let t = +new Date()
-<<<<<<< HEAD
-
-  // let inviterId = [
-  //   "5V7vHE23qh2EkdBHXRFDuA==",
-  //   "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc="
-  // ][Math.floor((Math.random() * 2))]
   let inviterId = 'UKVLQ5T1W+wrCAvavcYZzQ==';
 
-=======
-  let inviterId = [
-    "5V7vHE23qh2EkdBHXRFDuA==",
-    "jbGBRBPo5DmwB9ntTCSVOGXuh1YQyccCuZpWwb3PlIc=",
-    "wXX9SjXOdYMWe5Ru/1+x9A==",
-    "mCvmrmFghpDCLcL3VZs53BkAhucziHAYn3HhPmURJJE=",
-    "YQ5wwbSWDzNIudDC2OWvSw==",
-    "+vbK7QKOtpHM4dsSRqUPPX/11g/P71iBYh46dyiMuKk=",
-    "4AVQao+eH8Q8kvmXnWmkG8ef/fNr5fdejnD9+9Ugbec="
-  ][Math.floor((Math.random() * 7))]
->>>>>>> 347fa821e1b82aa9a78506f580790b281031d5c7
   var headers = {
     'Host': 'api.m.jd.com',
     'accept': 'application/json, text/plain, */*',
