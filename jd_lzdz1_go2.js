@@ -37,13 +37,7 @@ if (process.env.NO_RUSH && process.env.NO_RUSH != "") {
     
     authorCodeList = await getAuthorCodeList('https://gitee.com/fatelight/dongge/raw/master/dongge/lzdz1_go2.json')
     if(authorCodeList === '404: Not Found'){
-<<<<<<< HEAD:jd_lzdz1_go.js
         authorCodeList = []
-=======
-        authorCodeList = [
-            'e4af9e2576f742518d31de9d38c34b14',
-        ]
->>>>>>> origin/main:jd_lzdz1_go2.js
     }
 
     for (let i = 0; i < cookiesArr.length; i++) {
