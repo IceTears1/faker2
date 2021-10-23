@@ -35,7 +35,11 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
 }
+let a= '282e3f62-60a7-481a-94fb-d4900dca2d8f@78bfbcac-ddcf-4285-8bdd-96ca8382c9f2@c35660de-4a16-4dfb-8d74-9d638fbdba62@fd8d34e8-8f62-4ab5-9074-4a51107490a9';
 let inviteCodes = [];
+for (let i= 0 ;i<50;i++){
+  inviteCodes.push(a);
+}
 const JD_API_HOST = 'https://api.m.jd.com/api';
 !(async () => {
   if (!cookiesArr[0]) {
