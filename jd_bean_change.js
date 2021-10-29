@@ -57,16 +57,9 @@ let i = 0;
 let DisableCash = "false";
 let llShowMonth = false;
 let Today = new Date();
-// let RemainMessage = '\n';
-// RemainMessage += "⭕提醒:⭕" + '\n';
-// RemainMessage += '【极速金币】京东极速版->我的->金币(极速版使用)\n';
-// RemainMessage += '【京东赚赚】微信->京东赚赚小程序->底部赚好礼->提现无门槛红包(京东使用)\n';
-// RemainMessage += '【京东秒杀】京东->中间频道往右划找到京东秒杀->中间点立即签到->兑换无门槛红包(京东使用)\n';
-// RemainMessage += '【东东萌宠】京东->我的->东东萌宠,完成是京东红包,可以用于京东app的任意商品\n';
-// RemainMessage += '【领现金】京东->我的->东东萌宠->领现金(微信提现+京东红包)\n';
-// RemainMessage += '【东东农场】京东->我的->东东农场,完成是京东红包,可以用于京东app的任意商品\n';
-// RemainMessage += '【京喜工厂】京喜->我的->京喜工厂,完成是商品红包,用于购买指定商品(不兑换会过期)\n';
-// RemainMessage += '【其他】京喜红包只能在京喜使用,其他同理';
+let strAllNotify="";
+let RemainMessage = '\n';
+
 
 let WP_APP_TOKEN_ONE = "";
 let TempBaipiao = "";
@@ -101,6 +94,18 @@ if ($.isNode() && process.env.BEANCHANGE_DISABLECASH) {
 }
 if ($.isNode() && process.env.BEANCHANGE_ENABLEMONTH) {
 	EnableMonth = process.env.BEANCHANGE_ENABLEMONTH;
+}
+if ($.isNode() && process.env.BEANCHANGE_ALLNOTIFY) {
+	
+	var strTempNotify=process.env.BEANCHANGE_ALLNOTIFY ? process.env.BEANCHANGE_ALLNOTIFY.split('&') : [];
+	if (strTempNotify.length > 0) {
+		for (var TempNotifyl in strTempNotify) {					
+			strAllNotify+=strTempNotify[TempNotifyl]+'\n';
+		}
+	}
+	console.log(`检测到设定了公告,将在推送信息中置顶显示...`);
+	strAllNotify = `【✨✨✨✨公告✨✨✨✨】\n`+strAllNotify;
+	console.log(strAllNotify);
 }
 
 if (EnableMonth == "true" && Today.getDate() == 1 && Today.getHours() > 17)
@@ -218,6 +223,9 @@ if ($.isNode()) {
 				if ((i + 1) % intPerSent == 0) {
 					console.log("分段通知条件达成，处理发送通知....");
 					if ($.isNode() && allMessage) {
+						if(strAllNotify)
+							allMessage=strAllNotify+`\n`+allMessage;
+
 						await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 							url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 						})
@@ -283,6 +291,9 @@ if ($.isNode()) {
 		if (allMessage || allMessageMonth) {
 			console.log("分段通知收尾，处理发送通知....");
 			if ($.isNode() && allMessage) {
+				if(strAllNotify)
+					allMessage=strAllNotify+`\n`+allMessage;
+				
 				await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 					url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 				})
@@ -296,24 +307,33 @@ if ($.isNode()) {
 	} else {
 
 		if ($.isNode() && allMessageGp2) {
+			if(strAllNotify)
+				allMessageGp2=strAllNotify+`\n`+allMessageGp2;
 			await notify.sendNotify(`${$.name}#2`, `${allMessageGp2}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 			})
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessageGp3) {
+			if(strAllNotify)
+				allMessageGp3=strAllNotify+`\n`+allMessageGp3;
 			await notify.sendNotify(`${$.name}#3`, `${allMessageGp3}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 			})
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessageGp4) {
+			if(strAllNotify)
+				allMessageGp4=strAllNotify+`\n`+allMessageGp4;
 			await notify.sendNotify(`${$.name}#4`, `${allMessageGp4}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 			})
 			await $.wait(10 * 1000);
 		}
 		if ($.isNode() && allMessage) {
+			if(strAllNotify)
+				allMessage=strAllNotify+`\n`+allMessage;
+			
 			await notify.sendNotify(`${$.name}`, `${allMessage}`, {
 				url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean`
 			})
@@ -712,7 +732,9 @@ async function showMsg() {
 		}
 		ReturnMessage=`【账号名称】${$.nickName || $.UserName}\n`+ReturnMessage;
 		ReturnMessage += RemainMessage;
-
+		if(strAllNotify)
+			ReturnMessage=strAllNotify+`\n`+ReturnMessage;
+		
 		await notify.sendNotifybyWxPucher(`${$.name}`, `${ReturnMessage}`, `${$.UserName}`);
 	}
 
