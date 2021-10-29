@@ -101,6 +101,7 @@ if ($.isNode()) {
             'name': $.UserName,
             'code': $.inviteCodeList[k].code
           });
+
         }
       }
     }
