@@ -79,9 +79,8 @@ $.appId = 10032;
   $.InviteLists = []
   let getShareNum = 10
   let getShareNums = 0
-
   $.InviteLists.push(...$.InviteList);
-  
+
   for (let i = 0; i < cookiesArr.length; i++) {
     UA = `jdapp;iPhone;10.0.5;${Math.ceil(Math.random()*2+12)}.${Math.ceil(Math.random()*4)};${randomString(40)};`
     $.cookie = cookiesArr[i];
