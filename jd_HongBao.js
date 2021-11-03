@@ -59,6 +59,7 @@ async function main() {
     // const flCode = $.isNode() ? (process.env.JFFLCODE ? process.env.JFFLCODE : flCodeArr[Math.floor((Math.random() * flCodeArr.length))]) : flCodeArr[Math.floor((Math.random() * flCodeArr.length))];
     flCode = '3wRsPts';
 
+
     $.code = flCode;
     for (let i = 0; i < 10 && !$.max; i++) {
         $.newCookie = '';
