@@ -487,7 +487,7 @@ function h5launch() {
   })
 }
 function h5activityIndex() {
-  const body = {"clientInfo":{},"isjdapp":1};
+  const body = {"isjdapp":1};
   const options = taskUrl(arguments.callee.name.toString(), body);
   return new Promise((resolve) => {
     $.post(options, async (err, resp, data) => {
@@ -497,7 +497,7 @@ function h5activityIndex() {
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
-          console.log(JSON.stringify(err));
+          console.log("as:"+data);
           $.h5activityIndex = data;
           $.discount = 0;
           if ($.h5activityIndex && $.h5activityIndex.data && $.h5activityIndex.data.result) {
