@@ -43,7 +43,7 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
   }
   let res = []
 //   await getAuthorShareCode('')
-  $.authorMyShareIds = [...(res || [])];
+  $.authorMyShareIds = [];
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -118,7 +118,7 @@ async function redPacket() {
     //await doTask();//领取任务，做任务，领取红包奖励
     await h5activityIndex();//查询红包基础信息
     await red();//红包任务(发起助力红包,领取助力红包等)
-    await h5activityIndex();
+    // await h5activityIndex();
   } catch (e) {
     $.logErr(e);
   }
@@ -510,8 +510,10 @@ function h5activityIndex() {
         }
       } catch (e) {
         $.logErr(e, resp);
+        console.log(JSON.stringify(e));
       } finally {
         resolve();
+        
       }
     })
   })
