@@ -252,6 +252,7 @@ async function red() {
   } else if ($.h5activityIndex && $.h5activityIndex.data && ($.h5activityIndex.data.biz_code === 20001)) {
     //20001:红包活动正在进行，可拆
     const redPacketId = $.h5activityIndex.data.result.redpacketInfo.id;
+    console.log(`\nidididdi::::${redPacketId}\n`);
     if (redPacketId) $.redPacketId.push(redPacketId);
     console.log(`\n\n当前待拆红包ID:${$.h5activityIndex.data.result.redpacketInfo.id}，进度：再邀${$.h5activityIndex.data.result.redpacketConfigFillRewardInfo[$.hasSendNumber].requireAssistNum - $.h5activityIndex.data.result.redpacketConfigFillRewardInfo[$.hasSendNumber].hasAssistNum}个好友，开第${$.hasSendNumber + 1}个红包。当前已拆红包：${$.hasSendNumber}个，剩余${$.h5activityIndex.data.result.remainRedpacketNumber}个红包待开，已有${$.assistants}好友助力\n\n`)
     console.log(`当前可拆红包个数：${$.waitOpenTimes}`)
@@ -496,6 +497,7 @@ function h5activityIndex() {
           console.log(JSON.stringify(err));
         } else {
           data = JSON.parse(data);
+          console.log(JSON.stringify(err));
           $.h5activityIndex = data;
           $.discount = 0;
           if ($.h5activityIndex && $.h5activityIndex.data && $.h5activityIndex.data.result) {
@@ -619,7 +621,7 @@ function getAuthorShareCode(url) {
 
 function taskUrl(functionId, body = {}) {
   return {
-    url: `${JD_API_HOST}?appid=jinlihongbao&functionId=${functionId}&loginType=2&client=jinlihongbao&clientVersion=10.1.0&osVersion=iOS&d_brand=iPhone&d_model=iPhone&t=${new Date().getTime() * 1000}`,
+    url: `${JD_API_HOST}?appid=jinlihongbao&functionId=${functionId}&loginType=2&client=jinlihongbao&clientVersion=10.2.2&osVersion=iOS&d_brand=iPhone&d_model=iPhone&t=${new Date().getTime() * 1000}`,
     body: `body=${escape(JSON.stringify(body))}`,
     headers: {
       "Host": "api.m.jd.com",
