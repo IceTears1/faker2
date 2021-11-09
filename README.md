@@ -12,7 +12,7 @@ Faker维护仓库，收集全网目前能正常使用的脚本。
 
 
 【Faker集合仓库】
-ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendnotify|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate|ql"
+ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git "jd_|jx_|gua_|jddj_|getJDCookie" "activity|backUp" "^jd[^_]|USER|function|utils|sendnotify|ZooFaker_Necklace.js|JDJRValidator_|sign_graphics_validate|ql"
 
 【圈x订阅地址】
 
@@ -27,7 +27,7 @@ https://www.notion.so/Cent-OS-7-6-1c598629675145988b43a37998a1604a
 
 维护收集不易，各位看官高兴可打赏下~
 
-![image](https://user-images.githubusercontent.com/15306294/125604796-955a078a-0e28-4900-9a1c-6fabdc8feb7d.png)
+![image](https://user-images.githubusercontent.com/15306294/140888333-901cbcdd-e599-44c4-b834-8ea4d1ebc7b0.png)
 
 
 ## Special statement:
