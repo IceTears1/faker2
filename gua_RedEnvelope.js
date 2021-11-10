@@ -1,9 +1,9 @@
 /*
 双十一无门槛红包
-cron 0,30 0,12,20,22 * * * jd_HongBao.js
+0 0,10,20,22 * * * gua_RedEnvelope.js
 添加环境变量FLCODE 如需自己吃返利，请填写该变量（https://u.jd.com/后面的英文）
 * */
-const $ = new Env('抢双11无门槛红包');
+const $ = new Env('双十一巅峰狂欢🧧');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let cookiesArr = [];
 if ($.isNode()) {
@@ -58,7 +58,6 @@ async function main() {
     // const flCodeArr = ['3wRsPts'];
     // const flCode = $.isNode() ? (process.env.JFFLCODE ? process.env.JFFLCODE : flCodeArr[Math.floor((Math.random() * flCodeArr.length))]) : flCodeArr[Math.floor((Math.random() * flCodeArr.length))];
     flCode = '3wRsPts';
-
 
     $.code = flCode;
     for (let i = 0; i < 10 && !$.max; i++) {
