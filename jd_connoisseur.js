@@ -189,7 +189,7 @@ async function getTaskInfo(type, projectId, assignmentId, helpType = '1', itemId
               } else {
                 console.log(data.message)
               }
-            } else if ((assignmentId === "XTXNrKoUP5QK1LSU8LbTJpFwtbj" || assignmentId === "2bpKT3LMaEjaGyVQRr2dR8zzc9UU") && !body['helpType']) {
+            } else if (assignmentId === "485y3NEBCKGJg6L4brNg6PHhuM9d" || assignmentId === "2bpKT3LMaEjaGyVQRr2dR8zzc9UU") {
               if (data.code === "0" && data.data) {
                 if (data.data[0].status !== "2") {
                   await sign_interactive_done(type, data.data[0].projectId, data.data[0].assignmentId)
@@ -201,7 +201,7 @@ async function getTaskInfo(type, projectId, assignmentId, helpType = '1', itemId
               } else {
                 console.log(data.message)
               }
-            } else if (assignmentId === "Hys8nCmAaqKmv1G3Y3a5LJEk36Y" && !body['helpType']) {
+            } else if (assignmentId === "Hys8nCmAaqKmv1G3Y3a5LJEk36Y") {
               if (data.code === "0" && data.data) {
                 console.log(`去做【${data.data[0].title}】`)
                 if (data.data[0].status !== "2") {
@@ -214,7 +214,7 @@ async function getTaskInfo(type, projectId, assignmentId, helpType = '1', itemId
               } else {
                 console.log(data.message)
               }
-            } else if (assignmentId === $.taskCode && body['helpType']) {
+            } else if (assignmentId === $.taskCode) {
               if (helpType === '1') {
                 if (data.code === "0" && data.data) {
                   if (data.data[0].status !== "2") {
@@ -257,9 +257,10 @@ async function getTaskInfo(type, projectId, assignmentId, helpType = '1', itemId
     })
   })
 }
-function interactive_done(type, projectId, assignmentId, itemId) {
+function interactive_done(type, projectId, assignmentId, itemId, actionType = '') {
   let body = {"projectId":projectId,"assignmentId":assignmentId,"itemId":itemId,"type":type}
   if (type === "5" || type === "2") body['agid'] = agid
+  if (type === "10" || type === "11") delete body["itemId"], body["actionType"] = actionType, body["contentId"] = itemId
   return new Promise(resolve => {
     $.post(taskUrl('interactive_done', body), (err, resp, data) => {
       try {
@@ -278,7 +279,7 @@ function interactive_done(type, projectId, assignmentId, itemId) {
               }
             } else {
               if (data.code === "0" && data.busiCode === "0") {
-                console.log(data.data.rewardMsg)
+                if (type !== "10" && type !== "11") console.log(data.data.rewardMsg)
               } else {
                 console.log(data.message)
               }
@@ -420,7 +421,7 @@ async function getshareCode() {
             data = JSON.parse(data)
             for (let key of Object.keys(data.floorList)) {
               let vo = data.floorList[key]
-              if (vo.boardParams && (vo.boardParams.taskCode === "2gWnJADG8JXMpp1WXiNHgSy4xUSv" || vo.boardParams.taskCode === "26KhtkXmoaj6f37bE43W5kF8a9EL" || vo.boardParams.taskCode === "bWE8RTJm5XnooFr4wwdDM5EYcKP")) {
+              if (vo.boardParams && (vo.boardParams.taskCode === "2gWnJADG8JXMpp1WXiNHgSy4xUSv" || vo.boardParams.taskCode === "2wPBGptSUXNs3fxqgAtrV5MwkYEa" || vo.boardParams.taskCode === "u4eyHS91t3fV6HRyBCg9k5NTUid" || vo.boardParams.taskCode === "Hys8nCmAaqKmv1G3Y3a5LJEk36Y" || vo.boardParams.taskCode === "4WHSXEqKZeGQZeP9SvqxePQpBkpS" || vo.boardParams.taskCode === "4PCdWdiKNwRw1PmLaFzJmTqRBq4v" || vo.boardParams.taskCode === "4JcMwRmGJUXptBYzAfUDkKTtgeUs" || vo.boardParams.taskCode === "4ZmB6jqmJjRWPWxjuq22Uf17CuUQ" || vo.boardParams.taskCode === "QGPPJyQPhSBJ57QcU8PdMwWwwCR" || vo.boardParams.taskCode === "tBLY4YL4LkBwWj9KKq9BevHHvcP" || vo.boardParams.taskCode === "4UFHr2rSLyS912riDWih6B8gMXkf" || vo.boardParams.taskCode === "3dw9N5yB18RaN9T1p5dKHLrWrsX")) {
                 await getTaskInfo("1", vo.boardParams.projectCode, vo.boardParams.taskCode)
                 await $.wait(2000)
               } else if (vo.boardParams && vo.boardParams.taskCode === "3PX8SPeYoQMgo1aJBZYVkeC7QzD3") {
@@ -428,13 +429,34 @@ async function getshareCode() {
                 $.taskCode = vo.boardParams.taskCode
               }
             }
-            await getTaskInfo("2", $.projectCode, $.taskCode)
+            // await getTaskInfo("2", $.projectCode, $.taskCode)
           }
         }
       } catch (e) {
         $.logErr(e, resp)
       } finally {
         resolve();
+      }
+    })
+  })
+}
+
+function aha_card_list(type, projectId, assignmentId) {
+  return new Promise(resolve => {
+    $.post(taskUrl('browse_aha_task/aha_card_list', {"type":type,"projectId":projectId,"assignmentId":assignmentId,"agid":agid,"firstStart":1}), (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} aha_card_list API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            data = JSON.parse(data)
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve(data);
       }
     })
   })
@@ -457,8 +479,14 @@ function taskUrl(functionId, body) {
   } else {
     body = encodeURIComponent(JSON.stringify(body))
   }
+  let function_Id;
+  if (functionId.indexOf("/") > -1) {
+    function_Id = functionId.split("/")[1]
+  } else {
+    function_Id = functionId
+  }
   return {
-    url: `${JD_API_HOST}${functionId}?functionId=${functionId}&appid=contenth5_common&body=${body}&client=wh5`,
+    url: `${JD_API_HOST}${functionId}?functionId=${function_Id}&appid=contenth5_common&body=${body}&client=wh5`,
     headers: {
       "Host": "api.m.jd.com",
       "Accept": "application/json, text/plain, */*",
