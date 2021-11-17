@@ -94,6 +94,7 @@ function open(help){
         } else if (!data) {
             tools.unshift(tool)
         }
+        console.log(JSON.stringify(data));
         console.log(`${tool.id}->${help.id}`, desc)   
         open(help)         
     })   
