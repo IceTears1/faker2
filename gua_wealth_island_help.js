@@ -64,6 +64,9 @@ $.appId = 10032;
   await getCode()
   await requestAlgo();
   for (let i = 0; i < cookiesArr.length; i++) {
+      if(i>1){
+          return
+      }
     if (cookiesArr[i]) {
       $.cookie = cookiesArr[i] + '';
       $.UserName = decodeURIComponent($.cookie.match(/pt_pin=([^; ]+)(?=;?)/) && $.cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
@@ -199,7 +202,7 @@ function taskGet(type, stk, additional){
       let data = ''
       try {
         let contents = ''
-        // console.log(_data)
+        console.log(_data)
         data = $.toObj(_data)
         if(data && data.iRet == 0){
           // console.log(_data)
