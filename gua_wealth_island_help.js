@@ -132,6 +132,7 @@ async function run () {
             if (curIndex == 0 && ($.HomeInfo.strMyShareId == undefined || $.HomeInfo.strMyShareId == "")) {
                 return;
             }
+            console.log("索引：" +curIndex+"----"+"code: "+$.HomeInfo.strMyShareId);
             $.InviteList.push($.HomeInfo.strMyShareId)
             console.log(`等级:${$.HomeInfo.dwLandLvl} 当前金币:${$.HomeInfo.ddwCoinBalance} 当前财富:${$.HomeInfo.ddwRichBalance} 助力码:${$.HomeInfo.strMyShareId}`)
             if (HelpAuthorFlag && codeIndexArr.includes($.index)) {
