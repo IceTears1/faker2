@@ -80,9 +80,9 @@ $.appId = 10032;
     let getShareNum = 10
     let getShareNums = 0
     $.InviteLists.push(...$.InviteList);
-    let curIndex = 0
+    $.curIndex = 0
     for (let i = 0; i < cookiesArr.length; i++) {
-        curIndex = i;
+        $.curIndex = i;
         UA = `jdapp;iPhone;10.0.5;${Math.ceil(Math.random() * 2 + 12)}.${Math.ceil(Math.random() * 4)};${randomString(40)};`
         $.cookie = cookiesArr[i];
         $.canHelp = true;
@@ -132,7 +132,7 @@ async function run () {
             if (curIndex == 0 && ($.HomeInfo.strMyShareId == undefined || $.HomeInfo.strMyShareId == "")) {
                 return;
             }
-            console.log("索引：" +curIndex+"----"+"code: "+$.HomeInfo.strMyShareId);
+            console.log("索引：" +$.curIndex+"----"+"code: "+$.HomeInfo.strMyShareId);
             $.InviteList.push($.HomeInfo.strMyShareId)
             console.log(`等级:${$.HomeInfo.dwLandLvl} 当前金币:${$.HomeInfo.ddwCoinBalance} 当前财富:${$.HomeInfo.ddwRichBalance} 助力码:${$.HomeInfo.strMyShareId}`)
             if (HelpAuthorFlag && codeIndexArr.includes($.index)) {
