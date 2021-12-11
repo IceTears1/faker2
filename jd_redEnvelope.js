@@ -5,7 +5,7 @@
 */
 const $ = new Env("暖暖红包");
 const jdCookieNode = $.isNode() ? require("./jdCookie.js") : "";
-let cookiesArr = [];
+let cookiesArr = [], cookie;
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item]);
@@ -15,9 +15,6 @@ if ($.isNode()) {
 } else {
   cookiesArr = [$.getdata("CookieJD"), $.getdata("CookieJD2"), ...$.toObj($.getdata("CookiesJD") || "[]").map((item) => item.cookie)].filter((item) => !!item);
 }
-
-let codeLsit = ['nt5zCmM']
-$.code = codeLsit[random(0, codeLsit.length)];
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, "【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取", "https://bean.m.jd.com/bean/signIndex.action", { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
