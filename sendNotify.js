@@ -114,7 +114,7 @@ let GOTIFY_PRIORITY = 0;
 
 /**
  * sendNotify 推送通知功能
- * @param text 通知头
+ * @param text 通知头123
  * @param desp 通知体
  * @param params 某些推送通知方式点击弹窗可跳转, 例：{ url: 'https://abc.com' }
  * @param author 作者仓库等信息  例：`本通知 By：https://github.com/whyour/qinglong`
@@ -122,7 +122,7 @@ let GOTIFY_PRIORITY = 0;
  */
 let PushErrorTime = 0;
 let strTitle = "";
-let ShowRemarkType = "1";
+let ShowRemarkType = "2";
 let Notify_NoCKFalse = "false";
 let Notify_NoLoginSuccess = "false";
 let UseGroupNotify = 1;
