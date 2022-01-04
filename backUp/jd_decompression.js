@@ -24,11 +24,11 @@ if ($.isNode()) {
         return;
     }
     let res = [];
-    try{res = await getAuthorShareCode('https://raw.githubusercontent.com/lsh26/share_code/main/decompression.json');}catch (e) {}
-    if(!res){
-        try{res = await getAuthorShareCode('https://gitee.com/star267/share-code/raw/master/decompression.json');}catch (e) {}
-        if(!res){res = [];}
-    }
+    // try{res = await getAuthorShareCode('https://raw.githubusercontent.com/lsh26/share_code/main/decompression.json');}catch (e) {}
+    // if(!res){
+    //     try{res = await getAuthorShareCode('https://gitee.com/star267/share-code/raw/master/decompression.json');}catch (e) {}
+    //     if(!res){res = [];}
+    // }
     if(res.length > 0){
         $.shareUuid = getRandomArrayElements(res,1)[0];
     }

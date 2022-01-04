@@ -86,7 +86,7 @@ const JD_API_HOST = `https://api.m.jd.com`;
         }
 
         if (new Date().getHours() >= 10) {
-            await getAuthorShareCode()
+            // await getAuthorShareCode()
             if ($.authorCode && $.authorCode.length) {
                 console.log(`\n${$.UserName} 去助力\n`)
                 for (let j = 0; j < $.authorCode.length; j++) {
