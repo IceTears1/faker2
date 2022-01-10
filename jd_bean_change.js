@@ -62,16 +62,11 @@ let strAllNotify="";
 let llPetError=false;
 let strGuoqi="";
 let RemainMessage = '\n';
-
-
-
-
 let WP_APP_TOKEN_ONE = "";
 let TempBaipiao = "";
 if ($.isNode() && process.env.WP_APP_TOKEN_ONE) {
 	WP_APP_TOKEN_ONE = process.env.WP_APP_TOKEN_ONE;
 }
-
 let doExJxBeans ="false";
 let time = new Date().getHours();
 if ($.isNode()) {
