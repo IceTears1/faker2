@@ -55,10 +55,7 @@ const JD_API_HOST = `https://m.jingxi.com`;
             await main()
         }
     }
-    let res = await getAuthorShareCode('https://raw.githubusercontent.com/shufflewzc/updateTeam/main/shareCodes/ttysq.json')
-    if (!res) {
-        res = await getAuthorShareCode('https://raw.fastgit.org/shufflewzc/updateTeam/main/shareCodes/ttysq.json')
-    }
+    let res = []
     if (res) {
         authorCode = res.sort(() => 0.5 - Math.random())
         if (authorCode.length > 3) {
